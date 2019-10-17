@@ -5,19 +5,26 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
- 
+
 @RefreshScope
 @RestController
 public class OrderController {
- 
-   @Value("${seller: unknown}")
-    private String seller;
- 
-    @RequestMapping("/seller")
-    @ResponseBody
-    public String getSeller() {
-        return seller;
-    }
- 
 
+   @Value("${currency: unknown}")
+   private String currency;
+
+   @Value("${shippingState: unknown}")
+   private String shippingState;
+
+   @RequestMapping("/currency")
+   @ResponseBody
+   public String getCurrency() {
+      return this.currency;
+   }
+
+   @RequestMapping("/shippingstate")
+   @ResponseBody
+   public String getShippingState() {
+      return this.shippingState;
+   }
 }
